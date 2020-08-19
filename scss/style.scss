@@ -25,31 +25,20 @@ ul {
   max-width: 1170px;
   padding: 15px;
 }
-  
+ 
+.title {
+  font-size: 4.5rem;
+  font-weight: 700;
+  max-width: 800px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+  position: relative;
 
-.header {
-  min-height: 100vh;
-  background-image: linear-gradient( rgba(251, 176, 16, .3), #fff);
-  text-align: center;
-  padding-top: 50px;  
-
-  &--container {
-    background-image: url(../img/prewiew.png);
-    background-repeat: no-repeat;
+  &--marked {
+    color: $primary-color;
   }
-
-  &__title {
-    font-size: 4.5rem;
-    font-weight: 700;
-    max-width: 800px;
+  &--header {
     text-align: center;
-    margin: 0 auto;
-    padding-bottom: 40px;
-    position: relative;
-
-    &--marked {
-      color: $primary-color;
-    }
 
     &:before {
       content: "бизнес с TL-Holding";
@@ -57,11 +46,43 @@ ul {
       opacity: .1;
       font-size: 6rem;
       position: absolute;
-      top: -17%;
+      top: -16%;
       transform: scale(1.5);
       z-index: -1;
     }
   }
+
+  &--achievements {
+    margin-top: 50px;
+    line-height: 2.2;
+    
+
+    &:before {
+      content: "открываем";
+      text-transform: uppercase;
+      opacity: .1;
+      font-size: 6rem;
+      position: absolute;
+      top: -27%;
+      left: 31%;
+      transform: scale(1.8);
+      z-index: -1;
+    }
+  }
+}
+
+.header {
+  background-image: linear-gradient( rgba(251, 176, 16, .3), #fff);
+  text-align: center;
+  padding: 50px 0;  
+
+  &--container {
+    background-image: url(../img/prewiew.png);
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  
   &__subtitle {
     font-weight: 400;
     max-width: 600px;
@@ -94,21 +115,24 @@ ul {
 
   &:before,
   &:after {
-    content: "";
-    display: inline-block;
-    width: 10px;
-    height: 300px;
-    background-color: rgba(204, 204, 204, .5);
-    position: absolute;
-    top: -50%;
-    left: 50%;
-    z-index: -1;
+    
+    @media screen and (min-width: 1200px) {
+      content: "";
+      display: inline-block;
+      width: 5px;
+      height: 300px;
+      background-color: rgba(204, 204, 204, .5);
+      position: absolute;
+      top: -50%;
+      left: 50%;
+      z-index: -2;
+    }
   }
   &:before {
-    transform: translate(-50%, 2%) rotate(65deg);
+    transform: translate(-50%, 2%) rotate(60deg);
   }
   &:after {
-    transform: translate(-50%, 2%) rotate(-65deg);
+    transform: translate(-50%, 2%) rotate(-60deg);
   }
 }
 
@@ -121,7 +145,7 @@ ul {
     font-size: 1.4rem;
     width: 300px;
     text-align: left;
-    margin: 0 auto 65px;
+    margin: 0 auto 100px;
     background-color: $secondary-color;
     border-radius: 5px;
     padding: 10px 30px;
@@ -146,16 +170,19 @@ ul {
       }
 
       &:before {
-        content: "";
-        display: inline-block;
-        width: 10px;
-        height: 100px;
-        background-color: rgba(204, 204, 204, .5);
-        position: absolute;
-        top: -100%;
-        left: 50%;
-        transform: translate(-50%, -20%);
-        z-index: 0;
+        
+        @media screen and (min-width: 1200px) {
+          content: "";
+          display: inline-block;
+          width: 5px;
+          height: 120px;
+          background-color: rgba(204, 204, 204, .5);
+          position: absolute;
+          top: -120%;
+          left: 50%;
+          transform: translate(-50%, -20%);
+          z-index: 0;
+        }
       }
     }
     &:nth-of-type(2n) {
@@ -198,3 +225,74 @@ ul {
   }
 }
 
+.info {
+
+  &--container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  &__map {
+    background-image: url(../img/map.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+}
+
+.achievements {
+  padding-left: 100px;
+}
+
+.achieve {
+  // padding: 0 20px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin-bottom: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: 400px;
+
+  &__number {
+    font-size: 6rem;
+    line-height: 8rem;
+    display: inline-block;
+    padding: 0 20px;
+  }
+
+
+  &:before {
+    content: "";
+    display: inline-block;
+    width: 2px;
+    height: 80px;
+    position: absolute;
+  }
+
+  &--age {
+    background-color: rgba($age-color, .1);
+    
+
+    &:before {
+      background-color: $age-color;
+    }
+    & .achieve__number {
+      color: $age-color;
+    }
+  }
+  &--customers {
+    background-color: rgba($customers-color, .1);
+    
+
+    &:before {
+      background-color: $customers-color;
+    }
+    & .achieve__number {
+      color: $customers-color;
+    }
+  }
+
+  
+
+
+}
