@@ -381,6 +381,8 @@ ul {
   display: flex;
   align-items: center;
   max-width: 400px;
+  max-height: 80px;
+  overflow: hidden;
   font-size: 1.4rem;
   padding-right: 10px;
 
